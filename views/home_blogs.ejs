@@ -1,0 +1,36 @@
+
+<%- include("partials/header", {brandName: "Blog Center"}); -%>
+  <h1>Blogs <span class="badge" style="font-size: 25px;"><%= blogs.length %></span></h1>
+
+ <div class="row">
+
+  <%  blogs.forEach(function(blog){ %>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail" style="background-color: rgb(229, 255, 196);">
+        <div id="profileImage"><%= blog.title.substring(0,1) %> </div>
+        <div class="caption">
+          <h3><%=blog.title%> <span class="badge" style="font-size: 20px;"><%= blog.post.length %></span></h3>
+          <p><%=blog.content.substring(0, 30) + " ..."%></p>
+          <p style="text-align: right;"><a href="/blogs/<%=blog.title%>" class="btn btn-success" role="button">Goto -></a></p>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+
+<div class="col-sm-6 col-md-3">
+    <div class="thumbnail" style="background-color: bisque;">
+      <div id="profileImageAdd">+</div>
+      <div class="caption">
+          <h3>Add New Blog</h3>
+          <p>Add Description </p>
+          <p style="text-align: right;"><a href="/compose-blogs" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a></p>
+          </div>
+      </div>
+    
+  </div>
+    
+</div>
+
+
+<%- include("partials/footer"); -%>

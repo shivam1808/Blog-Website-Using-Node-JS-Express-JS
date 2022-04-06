@@ -1,0 +1,25 @@
+
+<%- include("partials/header"); -%>
+<h1 style="color: rgb(161, 92, 8);"><%= title %></h1>
+<p> <%= content %> </p>
+
+<% if(posts != null) { %> 
+<%  posts.forEach(function(post){ %>
+    <div class="post">
+        <h1><%=post.title%></h1>
+        <p>
+            <%=post.content.substring(0, 100) + " ..."%>
+            <a href="<%= title %>/posts/<%=post.title%>">Read More</a>
+        </p>
+    </div>
+
+<% }) } %>
+
+<div style="text-align: center;">
+    <h1>Add Post</h1>
+    <p>
+        <a href="/blogs/<%= title %>/compose" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
+    </p>
+</div>
+
+<%- include("partials/footer"); -%>
